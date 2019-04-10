@@ -1,0 +1,11 @@
+CASCADE: Hapus atau perbarui baris dari tabel induk, dan secara otomatis menghapus atau memperbarui baris yang cocok di tabel anak. Baik ON DELETE CASCADE dan ON UPDATE CASCADE didukung. Di antara dua tabel, jangan mendefinisikan beberapa klausa ON UPDATE CASCADE yang bertindak pada kolom yang sama di tabel induk atau di tabel anak.
+
+SET NULL: Hapus atau perbarui baris dari tabel induk, dan atur kolom kunci asing atau kolom di tabel anak ke NULL. Klausa ON DELETE SET NULL dan ON UPDATE SET NULL didukung.
+
+Jika Anda menentukan tindakan SET NULL, pastikan Anda belum mendeklarasikan kolom dalam tabel anak sebagai NOT NULL.
+
+RESTRICT: Menolak operasi hapus atau perbarui untuk tabel induk. Menentukan RESTRICT (atau TANPA TINDAKAN) sama dengan menghilangkan klausa ON DELETE atau ON UPDATE.
+
+TANPA TINDAKAN: Kata kunci dari SQL standar. Di MySQL, setara dengan RESTRICT. Server MySQL menolak operasi hapus atau perbarui untuk tabel induk jika ada nilai kunci asing terkait di tabel referensi. Beberapa sistem basis data memiliki cek yang ditangguhkan, dan NO ACTION adalah cek yang ditangguhkan. Di MySQL, batasan kunci asing diperiksa segera, jadi NO ACTION sama dengan RESTRICT.
+
+SET DEFAULT: Tindakan ini dikenali oleh parser MySQL, tetapi InnoDB dan NDB menolak definisi tabel yang berisi klausa ON DELETE SET DEFAULT atau ON UPDATE SET DEFAULT.
